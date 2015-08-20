@@ -29,7 +29,7 @@ public class InductionActivity extends ListActivity {
     }
 
     /**
-     * A simple array adapter that creates a list of ChecklistItem.
+     * A simple array adapter that creates a list of ChecklistItems.
      */
     private class InductionAdapter extends BaseAdapter {
         @Override

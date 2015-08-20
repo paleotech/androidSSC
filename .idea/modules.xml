@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SSC.iml" filepath="$PROJECT_DIR$/SSC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidSSC.iml" filepath="$PROJECT_DIR$/androidSSC.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
