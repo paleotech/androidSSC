@@ -1,14 +1,11 @@
 <resources>
-    <string name="app_name">SSC</string>
-    <string name="edit_message">Enter a message</string>
-    <string name="button_send">Send</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_display_message">DisplayMessageActivity</string>
+    <string name="app_name">SSC: Surgery Safety Checklist</string>
+    <string name="action_up">Back</string>
+    <string name="action_help">Help</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="intro_message">Here is string intro message</string>
 
-    <string name="action_search">Search</string>
-    <string name="induction_title">Induction</string>
+    <string name="induction_title">SSC: Before Induction</string>
+    <string name="incision_title">SSC" Before Incision</string>
+    <string name="signout_title">SSC" Before Sign Out</string>
 </resources>

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Checkable;
 import android.widget.LinearLayout;
+import android.widget.ImageView;
 
 /**
  * Wrapper for LinearLayout that implements the Checkable interface
