@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.content.Intent;
+import android.text.Html;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -106,21 +107,45 @@ public class SurgerySafetyChecklist extends Activity {
 
                 Bitmap theMap = drawImage(position);
                 theImage.setImageBitmap(theMap);
+
+                TextView text2 = (TextView) convertView.findViewById(R.id.toplevel_text2);
+                text2.setText("");
             }
             else
             {
                 DataModel theDM = DataModel.getInstance();
                 int[] theArray = theDM.getScreenState(0);
+                TextView theText = (TextView) convertView.findViewById(R.id.toplevel_text);
                 if ( (theArray[7] == 0) && (theArray[8] == 0) && (theArray[9] == 0))
                 {
-                    // Do nothing
+                    theText.setText("");
+                    TextView text2 = (TextView) convertView.findViewById(R.id.toplevel_text2);
+                    text2.setText("");
                 }
                 else
                 {
-                    TextView theText = (TextView) convertView.findViewById(R.id.toplevel_text);
-                    theText.setText(ChecklistItem.TOPITEMS[position]);
+                    String theString = ChecklistItem.TOPITEMS[position];
+                    theText.setText(theString);
+                    String risk1 = "";
+                    String risk2 = "";
+                    String risk3 = "";
+                    if (theArray[7] == 2)
+                    {
+                        risk1 =  "Allergy<br />";
+                    }
+                    if (theArray[8] == 2)
+                    {
+                        risk2 = "Airway<br />";
+                    }
+                    if (theArray[9] == 2)
+                    {
+                        risk3 = "Bloodloss<br />";
+                    }
+                    TextView text2 = (TextView) convertView.findViewById(R.id.toplevel_text2);
+                    text2.setText(Html.fromHtml("<small>" + risk1 + "</small>" +
+                            "<small>" + risk2 + "</small>" +
+                            "<small>" + risk3 + "</small>"));
                 }
-
             }
 
             return convertView;

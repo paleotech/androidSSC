@@ -45,6 +45,14 @@ public class HelpViewActivity extends Activity {
         {
             webView.loadUrl("file:///android_asset/inductionHelp.html");
         }
+        else if (thePage.equals("Incision"))
+        {
+            webView.loadUrl("file:///android_asset/incisionHelp.html");
+        }
+        else if (thePage.equals("Signout"))
+        {
+            webView.loadUrl("file:///android_asset/signoutHelp.html");
+        }
     }
 
     @Override
