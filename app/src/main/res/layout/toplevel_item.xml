@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView android:id="@+id/toplevel_text"
+        android:duplicateParentState="true"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:layout_height="40dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/text_color" />
+    <!--  The image  -->
+    <ImageView
+        android:id="@+id/toplevel_image"
+        android:duplicateParentState="true"
+        android:layout_below="@id/toplevel_text"
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="80dp"
+     />
+
+</RelativeLayout>
