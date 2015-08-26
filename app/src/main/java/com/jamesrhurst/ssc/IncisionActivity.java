@@ -1,7 +1,6 @@
 package com.jamesrhurst.ssc;
-
 /*
- * Class InductionActivity manages the induction screen.
+ * Class IncisionActivity manages the Incision screen.
  */
 
 import android.app.ListActivity;
@@ -11,26 +10,25 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import java.util.Arrays;
 
-/**
- * 
- */
-public class InductionActivity extends ListActivity {
 
+/**
+ *
+ */
+public class IncisionActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
         setContentView(R.layout.checklist_layout);
-        setListAdapter(new InductionAdapter());
+        setListAdapter(new IncisionAdapter());
     }
 
     @Override
@@ -45,7 +43,7 @@ public class InductionActivity extends ListActivity {
         if (theTitle.equals("Help") )
         {
             Intent intent = new Intent(this, HelpViewActivity.class);
-            intent.putExtra("PageToLoad", "Induction");
+            intent.putExtra("PageToLoad", "Incision");
             startActivity(intent);
         }
         else {
@@ -64,7 +62,7 @@ public class InductionActivity extends ListActivity {
         TextView tv = (TextView)ll.findViewById(R.id.checklist_text);
         String text = tv.getText().toString();
         DataModel theDM = DataModel.getInstance();
-        theDM.toggleItem("induction", text);
+        theDM.toggleItem("incision", text);
         ImageView theView = (ImageView) v;
         final int position = listView.getPositionForView(il);
         checkImageConstraints(v, il, text, position);
@@ -73,35 +71,35 @@ public class InductionActivity extends ListActivity {
     /**
      * A simple array adapter that creates a list of ChecklistItems.
      */
-    private class InductionAdapter extends BaseAdapter {
+    private class IncisionAdapter extends BaseAdapter {
         @Override
         public int getCount() {
 
-            return ChecklistItem.INDUCTION.length;
+            return ChecklistItem.INCISION.length;
         }
 
         @Override
         public String getItem(int position) {
 
-            return ChecklistItem.INDUCTION[position];
+            return ChecklistItem.INCISION[position];
         }
 
         @Override
         public long getItemId(int position) {
-            return ChecklistItem.INDUCTION[position].hashCode();
+            return ChecklistItem.INCISION[position].hashCode();
         }
 
         public boolean isIndented(final int position) {
-            String theString = ChecklistItem.INDUCTION[position];
-            String[] theArray = ChecklistItem.InductionIndents;
+            String theString = ChecklistItem.INCISION[position];
+            String[] theArray = ChecklistItem.IncisionIndents;
             if (Arrays.asList(theArray).contains(theString))
                 return true;
             return false;
         }
 
         public boolean hideImage(final int position) {
-            String theString = ChecklistItem.INDUCTION[position];
-            String[] theArray = ChecklistItem.InductionTitles;
+            String theString = ChecklistItem.INCISION[position];
+            String[] theArray = ChecklistItem.IncisionTitles;
             if (Arrays.asList(theArray).contains(theString))
                 return true;
             return false;
@@ -143,71 +141,39 @@ public class InductionActivity extends ListActivity {
     public void checkImageConstraints(View convertView, InductionLayout container, String theString, int position) {
         ImageView theImage = (ImageView) convertView.findViewById(R.id.checklist_image);
         DataModel theDM = DataModel.getInstance();
-        if (theString.equals(ChecklistItem.INDUCTION[4]) ) {
+        if (theString.equals(ChecklistItem.INCISION[10]) ) {
             manageExclusivePair(position, 1, convertView, container, theString);
-            if (theDM.isInductionItemChecked(theString))
-                theDM.clearItem("induction", ChecklistItem.INDUCTION[5]);
-            if (theDM.isInductionItemChecked(ChecklistItem.INDUCTION[5]))
+            if (theDM.isIncisionItemChecked(theString))
+                theDM.clearItem("incision", ChecklistItem.INCISION[11]);
+            if (theDM.isIncisionItemChecked(ChecklistItem.INCISION[11]))
                 theImage.setImageResource(R.drawable.checklist_item_unchecked);
         }
-        else if (theString.equals(ChecklistItem.INDUCTION[5]) )
+        else if (theString.equals(ChecklistItem.INCISION[11]) )
         {
             manageExclusivePair(position, -1, convertView, container, theString);
-            if (theDM.isInductionItemChecked(theString))
-                theDM.clearItem("induction", ChecklistItem.INDUCTION[4]);
-            if (theDM.isInductionItemChecked(ChecklistItem.INDUCTION[4]))
+            if (theDM.isIncisionItemChecked(theString))
+                theDM.clearItem("incision", ChecklistItem.INCISION[10]);
+            if (theDM.isIncisionItemChecked(ChecklistItem.INCISION[10]))
                 theImage.setImageResource(R.drawable.checklist_item_unchecked);
         }
-        else if (theString.equals(ChecklistItem.INDUCTION[9]) )
-        {
+        else if (theString.equals(ChecklistItem.INCISION[13]) ) {
             manageExclusivePair(position, 1, convertView, container, theString);
-            if (theDM.isInductionItemChecked(theString))
-                theDM.clearItem("induction", ChecklistItem.INDUCTION[10]);
-            if (theDM.isInductionItemChecked(ChecklistItem.INDUCTION[10]))
+            if (theDM.isIncisionItemChecked(theString))
+                theDM.clearItem("incision", ChecklistItem.INCISION[14]);
+            if (theDM.isIncisionItemChecked(ChecklistItem.INCISION[14]))
                 theImage.setImageResource(R.drawable.checklist_item_unchecked);
         }
-        else if (theString.equals(ChecklistItem.INDUCTION[10]) ) {
-            manageExclusivePair(position, -1, convertView, container, theString);
-            if (theDM.isInductionItemChecked(theString))
-                theDM.clearItem("induction", ChecklistItem.INDUCTION[9]);
-            if (theDM.isInductionItemChecked(ChecklistItem.INDUCTION[9]))
-                theImage.setImageResource(R.drawable.checklist_item_unchecked);
-        }
-        else if (theString.equals(ChecklistItem.INDUCTION[12]) )
-        {
-            manageExclusivePair(position, 1, convertView, container, theString);
-            if (theDM.isInductionItemChecked(theString))
-                theDM.clearItem("induction", ChecklistItem.INDUCTION[13]);
-            if (theDM.isInductionItemChecked(ChecklistItem.INDUCTION[13]))
-                theImage.setImageResource(R.drawable.checklist_item_unchecked);
-        }
-        else if (theString.equals(ChecklistItem.INDUCTION[13]) )
+        else if (theString.equals(ChecklistItem.INCISION[14]) )
         {
             manageExclusivePair(position, -1, convertView, container, theString);
-            if (theDM.isInductionItemChecked(theString))
-                theDM.clearItem("induction", ChecklistItem.INDUCTION[12]);
-            if (theDM.isInductionItemChecked(ChecklistItem.INDUCTION[12]))
-                theImage.setImageResource(R.drawable.checklist_item_unchecked);
-        }
-        else if (theString.equals(ChecklistItem.INDUCTION[15]) )
-        {
-            manageExclusivePair(position, 1, convertView, container, theString);
-            if (theDM.isInductionItemChecked(theString))
-                theDM.clearItem("induction", ChecklistItem.INDUCTION[16]);
-            if (theDM.isInductionItemChecked(ChecklistItem.INDUCTION[16]))
-                theImage.setImageResource(R.drawable.checklist_item_unchecked);
-        }
-        else if (theString.equals(ChecklistItem.INDUCTION[16]) )
-        {
-            manageExclusivePair(position, -1, convertView, container, theString);
-            if (theDM.isInductionItemChecked(theString))
-                theDM.clearItem("induction", ChecklistItem.INDUCTION[15]);
-            if (theDM.isInductionItemChecked(ChecklistItem.INDUCTION[15]))
+            if (theDM.isIncisionItemChecked(theString))
+                theDM.clearItem("incision", ChecklistItem.INCISION[13]);
+            if (theDM.isIncisionItemChecked(ChecklistItem.INCISION[13]))
                 theImage.setImageResource(R.drawable.checklist_item_unchecked);
         }
         else
         {
-            if (theDM.isInductionItemChecked(theString))
+            if (theDM.isIncisionItemChecked(theString))
                 theImage.setImageResource(R.drawable.checklist_item_checked);
             else
                 theImage.setImageResource(R.drawable.checklist_item_alert);
@@ -217,16 +183,15 @@ public class InductionActivity extends ListActivity {
     public void manageExclusivePair(int position, int offset, View convertView, InductionLayout container, String theString) {
         ImageView theImage = (ImageView) convertView.findViewById(R.id.checklist_image);
         DataModel theDM = DataModel.getInstance();
-        if (theDM.isInductionItemChecked(theString)) {
+        if (theDM.isIncisionItemChecked(theString)) {
             theImage.setImageResource(R.drawable.checklist_item_checked);
             InductionLayout il = (InductionLayout) container;
             ListView lv = (ListView) il.getParent();
-
             if (lv != null) {
                 int last = lv.getLastVisiblePosition();
                 int first = lv.getFirstVisiblePosition();
                 int partnerPosition = position + offset - first;
-                if ((partnerPosition >= 0) && (partnerPosition < last)) {
+                if ((partnerPosition >= 0) && (partnerPosition <= last)) {
                     InductionLayout il2 = (InductionLayout) lv.getChildAt(partnerPosition);
                     ImageView otherImage = (ImageView) il2.findViewById(R.id.checklist_image);
                     otherImage.setImageResource(R.drawable.checklist_item_unchecked);
@@ -242,7 +207,7 @@ public class InductionActivity extends ListActivity {
                 int last = lv.getLastVisiblePosition();
                 int first = lv.getFirstVisiblePosition();
                 int partnerPosition = position + offset - first;
-                if ( (partnerPosition >= 0) && (partnerPosition < last)) {
+                if ( (partnerPosition >= 0) && (partnerPosition <= last)) {
                     InductionLayout il2 = (InductionLayout) lv.getChildAt(partnerPosition);
                     ImageView otherImage = (ImageView) il2.findViewById(R.id.checklist_image);
                     otherImage.setImageResource(R.drawable.checklist_item_alert);

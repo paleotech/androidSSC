@@ -7,6 +7,8 @@ package com.jamesrhurst.ssc;
  */
 public class ChecklistItem {
 
+    public static final String[] TOPITEMS = { "Before Induction", "Before Incision", "Before Sign Out", "Risk Factors"};
+
     public static final String[] INDUCTION = {
             "Identity confirmed by patient",
             "Site confirmed by patient",
@@ -59,8 +61,8 @@ public class ChecklistItem {
             "Yes",
             "Not Applicable",
             "Is essential imaging displayed?",
-            "Yes",
-            "Not Applicable"
+            "Yes ",
+            "Not Applicable "
     };
 
     public static final String[] IncisionTitles = {
@@ -79,6 +81,8 @@ public class ChecklistItem {
             "Nursing team reviews if sterility (including indicator results) is confirmed, any equipment issues or concerns",
             "Yes",
             "Not Applicable",
+            "Yes ",
+            "Not Applicable ",
     };
     public static final String[] SIGNOUT = {
             "Nurse verbally confirms with the team:",
