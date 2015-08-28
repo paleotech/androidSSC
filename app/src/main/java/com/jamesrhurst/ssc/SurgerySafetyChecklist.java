@@ -1,5 +1,12 @@
 package com.jamesrhurst.ssc;
 
+/**
+ * Created by jhurst on 8/19/15.
+ * This is the main class for the Safe Surgery Checklist. It uses a custom adapter to display a
+ * ListView with three items, plus a button. The menu bar has the help screen, and soon, the
+ * language selection widget.
+ *
+ */
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -55,12 +62,11 @@ public class SurgerySafetyChecklist extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu
         getMenuInflater().inflate(R.menu.menu_surgery_safety_checklist, menu);
         return true;
     }
@@ -94,6 +100,10 @@ public class SurgerySafetyChecklist extends Activity {
             return ChecklistItem.TOPITEMS[position].hashCode();
         }
 
+        /*
+         *  Having the fourth ListView item as text only, with the three risk factors displayed as
+         *  needed is a little odd. I'd like to change that design.
+         */
         @Override
         public View getView(int position, View convertView, ViewGroup container) {
             if (convertView == null) {

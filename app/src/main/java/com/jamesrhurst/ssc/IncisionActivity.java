@@ -1,6 +1,8 @@
 package com.jamesrhurst.ssc;
 /*
- * Class IncisionActivity manages the Incision screen.
+ * Class IncisionActivity manages the Incision screen. It contains a list of checkboxes.
+ * Each checkbox has three states: a green checkbox, unchecked while it's partner is unchecked, or
+ * unchecked, and requiring that either it or its partnet be checked (the alert state).
  */
 
 import android.app.ListActivity;
@@ -18,10 +20,6 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 
-
-/**
- *
- */
 public class IncisionActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +67,7 @@ public class IncisionActivity extends ListActivity {
     }
 
     /**
-     * A simple array adapter that creates a list of ChecklistItems.
+     * A simple array adapter that creates the list of ChecklistItems.
      */
     private class IncisionAdapter extends BaseAdapter {
         @Override
@@ -138,6 +136,10 @@ public class IncisionActivity extends ListActivity {
         }
     }
 
+    /*
+        This is the tricky part, and it's not that tricky: some of the checkboxes are paired,
+        so that the function as two-item radio boxes. This method manages the model and the image display.
+     */
     public void checkImageConstraints(View convertView, InductionLayout container, String theString, int position) {
         ImageView theImage = (ImageView) convertView.findViewById(R.id.checklist_image);
         DataModel theDM = DataModel.getInstance();
@@ -180,6 +182,10 @@ public class IncisionActivity extends ListActivity {
         }
     }
 
+    /*
+        If the current item is checked, make sure its partner is unchecked. If it's unchecked, and the partner exists,
+        the partner should be on alert, rather than unchecked.
+     */
     public void manageExclusivePair(int position, int offset, View convertView, InductionLayout container, String theString) {
         ImageView theImage = (ImageView) convertView.findViewById(R.id.checklist_image);
         DataModel theDM = DataModel.getInstance();

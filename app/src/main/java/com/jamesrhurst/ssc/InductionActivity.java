@@ -140,6 +140,10 @@ public class InductionActivity extends ListActivity {
         }
     }
 
+    /*
+        This is the tricky part, and it's not that tricky: some of the checkboxes are paired,
+        so that the function as two-item radio boxes. This method manages the model and the image display.
+     */
     public void checkImageConstraints(View convertView, InductionLayout container, String theString, int position) {
         ImageView theImage = (ImageView) convertView.findViewById(R.id.checklist_image);
         DataModel theDM = DataModel.getInstance();
@@ -214,6 +218,10 @@ public class InductionActivity extends ListActivity {
         }
     }
 
+    /*
+        If the current item is checked, make sure its partner is unchecked. If it's unchecked, and the partner exists,
+        the partner should be on alert, rather than unchecked.
+     */
     public void manageExclusivePair(int position, int offset, View convertView, InductionLayout container, String theString) {
         ImageView theImage = (ImageView) convertView.findViewById(R.id.checklist_image);
         DataModel theDM = DataModel.getInstance();

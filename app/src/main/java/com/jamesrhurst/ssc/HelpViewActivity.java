@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 
 /**
- * Created by jhurst on 8/21/15.
+ * Created by jhurst on 8/21/15. This screen is just a wrapper for HTML help files.
  */
 public class HelpViewActivity extends Activity {
 
@@ -37,6 +37,7 @@ public class HelpViewActivity extends Activity {
 
     public void loadPage(String thePage)
     {
+        // Note: future language support will impact this function.
         if (thePage.equals("About"))
         {
             webView.loadUrl("file:///android_asset/about.html");
@@ -57,7 +58,7 @@ public class HelpViewActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu
         getMenuInflater().inflate(R.menu.menu_help, menu);
         return true;
     }

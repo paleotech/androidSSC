@@ -42,17 +42,6 @@ public class DataModel {
             signoutMap.put(ChecklistItem.SIGNOUT[i], "0");
     }
 
-    public void setState(int screen, String key, int value)
-    {
-        String theValue = Integer.toString(value);
-        if (screen == 0)
-            inductionMap.put(key, theValue);
-        else if (screen == 1)
-            incisionMap.put(key, theValue);
-        else if (screen == 2)
-            signoutMap.put(key, theValue);
-    }
-
     public boolean isInductionItemChecked(String theItem) {
         if (inductionMap.get(theItem).equals("0"))
             return false;
@@ -69,40 +58,6 @@ public class DataModel {
         if (signoutMap.get(theItem).equals("0"))
             return false;
         return true;
-    }
-
-    public int[] getArrayValues(int screen)
-    {
-        int[] theArray = new int[16];
-        if (screen == 0)
-        {
-
-            for (int i = 0; i < ChecklistItem.INDUCTION.length; i++) {
-                if (inductionMap.get(ChecklistItem.INDUCTION[i]).equals("0") )
-                    theArray[i] = 0;
-                else
-                    theArray[i] = 1;
-            }
-        }
-        else if (screen == 1)
-        {
-            for (int i = 0; i < ChecklistItem.INCISION.length; i++) {
-                if (inductionMap.get(ChecklistItem.INCISION[i]).equals("0") )
-                    theArray[i] = 0;
-                else
-                    theArray[i] = 1;
-            }
-        }
-        else if (screen == 2)
-        {
-            for (int i = 0; i < ChecklistItem.SIGNOUT.length; i++) {
-                if (inductionMap.get(ChecklistItem.SIGNOUT[i]).equals("0") )
-                    theArray[i] = 0;
-                else
-                    theArray[i] = 1;
-            }
-        }
-        return theArray;
     }
 
     public void toggleItem(String type, String text)
@@ -212,7 +167,6 @@ public class DataModel {
             theArray[5] = fetchInt(screen, theKey);
             theKey = ChecklistItem.INDUCTION[7];
             theArray[6] = fetchInt(screen, theKey);
-
             theKey = ChecklistItem.INDUCTION[9];
             int allergy = fetchInt(screen, theKey);
             theKey = ChecklistItem.INDUCTION[10];
@@ -243,7 +197,6 @@ public class DataModel {
                 theArray[9] = 1;
             else
                 theArray[9] = 0;
-
         } else if (screen == 1) {
             String theKey = ChecklistItem.INCISION[0];
             theArray[0] = fetchInt(screen, theKey);
@@ -259,7 +212,6 @@ public class DataModel {
             theArray[5] = fetchInt(screen, theKey);
             theKey = ChecklistItem.INCISION[8];
             theArray[6] = fetchInt(screen, theKey);
-
             theKey = ChecklistItem.INCISION[10];
             int abxGiven = fetchInt(screen, theKey);
             theKey = ChecklistItem.INCISION[11];
@@ -282,7 +234,6 @@ public class DataModel {
                 String theKey = ChecklistItem.SIGNOUT[i];
                 theArray[i-1] = fetchInt(screen, theKey);
             }
-
         }
         return theArray;
     }

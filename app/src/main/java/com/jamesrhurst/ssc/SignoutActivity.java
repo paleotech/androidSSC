@@ -112,6 +112,9 @@ public class SignoutActivity extends ListActivity {
             return false;
         }
 
+        /*
+        This screen has no paired checkboxes, so managing the model and display is straightforward.
+     */
         @Override
         public View getView(int position, View convertView, ViewGroup container) {
             if (convertView == null) {

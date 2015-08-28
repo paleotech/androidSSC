@@ -2,8 +2,14 @@ package com.jamesrhurst.ssc;
 
 /**
  * Created by jhurst on 8/19/15.
- * This is the three lists of checklist items for the checklist, segregated into
- * three static arrays of strings, which are the text lines for the checklist items.
+ * This file maintains the lists of strings used by the app. In particular, it manageds the checklist
+ * items for the checklist, segregated intoe static arrays of strings, which are the text lines for
+ * the checklist items.
+ *
+ * There are two sets of auxiliary strings: strings that need to be indented, because they are subordinate
+ * to a title, and strings that should not have a checkbox, because they are titles.
+ *
+ * Language support requires swapping out these strings with the translated versions, using HashMaps.
  */
 public class ChecklistItem {
 
